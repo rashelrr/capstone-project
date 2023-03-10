@@ -1,0 +1,24 @@
+{ 
+  "manifest_version": 3, 
+  "name": "Dynamic Content Tool", 
+  "minimum_chrome_version": "24.0.1307.0", 
+  "version": "0.0.1", 
+  "icons": { 
+  }, 
+ 
+  "content_scripts": [ 
+    { 
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+
+      "js": [ 
+          "scripts/jquery.min.js", 
+          "scripts/reader.js" 
+      ], 
+ 
+      "css": ["css/reader.css"]
+    } 
+  ] 
+} 
