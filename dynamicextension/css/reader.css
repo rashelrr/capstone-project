@@ -1,3 +1,50 @@
-.highlight {
-    outline: 3px solid red;
-}
+html,body {
+    font-family: arial;
+    font-size: 1.1em;
+  }
+  
+  .container {
+    margin: auto;
+    width: 800px;
+  }
+  
+  .heading {
+    margin: 1em 0;
+  }
+  
+  .heading2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: .5em 0;
+  }
+  
+  input,textarea {
+    font-size: 1.1em;
+  }
+  
+  a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+  
+  .offscreen {
+    top: -1000px;
+    font-size: 1px;
+  }
+  
+  
+  #videoplayer {
+    text-align: center;
+    position: relative;
+    top: -100px;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  #accessibilitybanner {
+    width: 857px;
+    height: 207px;
+    background-image: url(pics/blankbackground.png);
+  }

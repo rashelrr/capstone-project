@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Accessibility Course Overview</title>
+  <link rel="stylesheet" href="css/reader.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="scripts/reader.js"></script>
+</head>
+<body>
+<div class="offscreen">Main Content</div>
+<div class="container">
+<div class="navigation">
+  <a href="#home"><img src="pics/home.png"></a><a href="#links"><img src="pics/links.png"></a> <a href="#signup"><img src="pics/signup.png"></a>
+</div>
+
+<h1>Accessibility Overview</h1>
+<div id="accessibilitybanner"></div>
+
+<video width="480" height="360" id="thevideo">
+  <source src="employment-movie.mp4" type="video/mp4">
+  <track
+    label="English"
+    kind="subtitles"
+    srclang="en"
+    src="captions.vtt"
+    default >
+</video>
+<div id="videoplayer" role="button" aria-pressed="false" tabindex="0">
+  <img width="50px" height="50px" src="pics/play.png" alt="Play video">
+</div>
+
+<h2 id="links">Links</h2>
+<img src="pics/dot.png" alt="dot">&nbsp;<a href="https://www.barnardhci.com">Accessibility Research at Hamilton</a><br>
+<img src="pics/dot.png" alt="dot">&nbsp;<a href="https://www.hamilton.edu/offices/dos/accessibility">Disability Services at Hamilton</a><br>
+<img src="pics/dot.png" alt="dot">&nbsp;<a href="https://xkcd.com/">XKCD</a><br>
+<img src="pics/dot.png" alt="dot">&nbsp;<a href="https://www.youtube.com/watch?v=HtTyRajRuyY">A11ycasts Videos</a>
+
+
+<h2 id="signup">Sign Up</h2>
+<form id="sign-up-form">
+  <label for="fn" id="firstName">First Name:</label>
+  <input name="fn" type="text" size="10" id="fn"> <br>
+  <label for="mi" id="middleInitial">Middle Initial:</label>
+  <input name="mi" type="text" size="1" id="mi"><br>
+  <label for="ln" id="lastName">Last Name:</label>
+  <input name="ln" type="text" size="10" id="ln"><br>
+
+  <label for="em" id="email">Email:</label>
+  <input id="em" name="em" type="text" size="20"><br><br>
+
+  <input type="checkbox" id="spam" name="spam" value="spam">
+  <label for="spam">I would like to receive occassional emails with offers from y'all</label><br><br>
+
+  <label for="comments">Comments:</label><br><br>
+  <textarea id="comments" rows="5" cols="40"></textarea><br>
+  <input type="button" value="Sign Up!" id="signupbutton">
+
+</form>
+
+</div><!-- end div.container -->
+</body>
+</html>
