@@ -51,13 +51,33 @@ function checkLevel2(htmlCode) {
     // Level 2: Ensure Esc dismisses new content
     // Ensure that the Esc key dismisses any new content revealed on hover or keyboard focus
     // Intercept the Esc key press and ensure that Esc doesn't also get executed on an element in the underlying layer
-    // Need JavaScript to get hover text???
+    // Need JavaScript to get hover text??? 
     if (checkforHover(htmlCode) && !(htmlCode.includes(".key == Escape"))) {
         console.log("WARNING: Dynamic content may not be able to be dismissed with the Esc key.");
     }
     // Level 2: If content appears on hover, the new content needs to remain visible until dismissed
+
     // Level 2: Moving the pointer away from the trigger should not be the action that dismisses the new content
+    if (checkforHover(htmlCode) && checkForMouseDismiss(htmlCode)) {
+        console.log("WARNING: Dynamic content may have disappeared due to moving pointer away from said content.");
+    }
+
     // Level 2: Ensure custom tooltips and similar hover text can be triggered by keyboard
+}
+
+// Return true if mouse dismisses dynamic content
+// https://bobbyhadz.com/blog/javascript-check-if-style-contains-css-property
+function checkForMouseDismiss(elementId) { 
+    // TODO: assumes we're given id of hovered element
+
+    // check if has pointer-events: none property 
+    if ((elementId.style.pointerEvents && elementId.style.pointerEvents == "none") || 
+        (document.body.style.pointerEvents &&  document.body.style.pointerEvents== "none")) {
+        return false;
+    }
+    // TODO: check if has mouseout event --> display = none --> if so: return true
+
+    return true;
 }
 
 // Need to get JavaScript to properly check for hover content?
