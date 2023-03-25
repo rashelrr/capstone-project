@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Accessibility Course Overview</title>
+  <title>Guide to Developing Accessible Dynamic Content for Screen Reader Users</title>
   <link rel="stylesheet" href="css/reader.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="scripts/reader.js"></script>
@@ -10,12 +10,37 @@
 <body>
 <div class="offscreen">Main Content</div>
 <div class="container">
-<div class="navigation">
+<!-- <div class="navigation">
   <a href="#home"><img src="pics/home.png"></a><a href="#links"><img src="pics/links.png"></a> <a href="#signup"><img src="pics/signup.png"></a>
-</div>
+</div> -->
 
-<h1>Accessibility Overview</h1>
-<div id="accessibilitybanner"></div>
+<h1>Guide to Developing Accessible Dynamic Content for Screen Reader Users</h1>
+<!-- <div id="accessibilitybanner"></div> -->
+
+<h2>Provide error messages and notifications accessibly.</h2>
+<p>Ensure that your error messages and notification messages are not only merely able to be read by the screen reader,
+  but they also inform the user in a timely manner while allowing them to handle the situation at their own pace.</p>
+<h3>What Not to Do:</h3>
+<p>Example 1: Try putting in a non-email address and press submit.</p>
+  <!-- Code from: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation -->
+<form>
+  <label for="mail">
+    I would like you to provide me with an email address:
+  </label>
+  <input type="email" id="mail" name="mail" />
+  <button>Submit</button>
+</form>
+<p>This error message is NOT accessible to screen reader users.</p>
+<form>
+  <label for="mail">
+    I would like you to provide me with an email address:
+  </label>
+  <input type="email" id="mail" name="mail" required aria-describedby="errmsg" aria-invalid="true"/>
+  <span aria-live="polite" id="errmsg">Please enter an email address.</span>
+  <button>Submit</button>
+</form>
+
+
 
 <video width="480" height="360" id="thevideo">
   <source src="employment-movie.mp4" type="video/mp4">

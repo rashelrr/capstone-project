@@ -1,4 +1,19 @@
 $(document).ready(function() {
+
+  // Error validation
+  const email = document.getElementById("mail");
+
+  email.addEventListener("input", (event) => {
+    if (email.validity.typeMismatch) {
+      email.setCustomValidity("Please enter an email address.");
+      // $(document).getElementById("errmsg").style.display = "inline";
+    } else {
+      email.setCustomValidity("");
+      // $(document).getElementById("errmsg").style.display = "none";
+    }
+  });
+
+
     // Play video
     $("#videoplayer").mousedown(function() {
   
