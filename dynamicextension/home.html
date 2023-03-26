@@ -20,68 +20,122 @@
 <h2>Provide error messages and notifications accessibly.</h2>
 <p>Ensure that your error messages and notification messages are not only merely able to be read by the screen reader,
   but they also inform the user in a timely manner while allowing them to handle the situation at their own pace.</p>
-<h3>What Not to Do:</h3>
-<p>Example 1: Try putting in a non-email address and press submit.</p>
+  
+<hr>
+
+<h3>What Not to Do: Error Messages</h3>
+<p>Example 1A: Use a screen reader extension. Try putting in a non-email address and submit.</p>
   <!-- Code from: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation -->
 <form>
-  <label for="mail">
+  <label for="mail1">
     I would like you to provide me with an email address:
   </label>
-  <input type="email" id="mail" name="mail" />
+  <input type="email" id="mail1" name="mail1" />
   <button>Submit</button>
 </form>
-<p>This error message is NOT accessible to screen reader users.</p>
+<p>The above error message is NOT accessible to screen reader users. You may have noticed when an invalid email address
+  is entered, the error message is not relayed to the user at all. Instead, the user is simply redirected back to the
+  input box, which can confuse users. Users are not made aware that this was due to an invalid email address, and they
+  could misinterpret this redirection as a technical glitch.</p>
+<h3>What to Do Instead: Error Messages</h3>
+<p>Example 1B: Try the same thing on this example.</p>
 <form>
-  <label for="mail">
+  <label for="mail2">
     I would like you to provide me with an email address:
   </label>
-  <input type="email" id="mail" name="mail" required aria-describedby="errmsg" aria-invalid="true"/>
-  <span aria-live="polite" id="errmsg">Please enter an email address.</span>
+  <input type="email" id="mail2" name="mail2" required aria-describedby="errmsg" aria-invalid="false"/>
+  <span aria-live="polite" id="errmsg" hidden>Please enter a valid email address.</span>
   <button>Submit</button>
 </form>
+<p>Notice how this time, the screen reader read aloud the error message, thus making it accessible to screen reader users.
+  Let's take a look at the code for each of these examples.</p>
+<h3>Code and Best Practices: Error Messages</h3>
 
+<p>1. Use <b>aria-describedby</b> to associate the error message with the input.</p>
+<p>2. Set <b>aria-invalid</b> to true when the input is invalid. This will be conveyed to the user through the screen reader.
+  This was implemented through Javascript in Example 1B.</p>
+<p>3. Use <b>aria-live</b> to convey error messages that do not take focus. This will ensure that the error message is read by
+  the screen reader.</p>
+<p><i>As you can see, a few simple changes can make your error messages available to a greater number of users!</i></p>
 
+<p>HTML:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      &lt;!-- // EXAMPLE 1A -->
+      &lt;form>
+        &lt;label for="mail1">
+          I would like you to provide me with an email address:
+        &lt;/label>
+        &lt;input type="email" id="mail1" name="mail1" />
+        &lt;button>Submit&lt;/button>
+      &lt;/form>
 
-<video width="480" height="360" id="thevideo">
-  <source src="employment-movie.mp4" type="video/mp4">
-  <track
-    label="English"
-    kind="subtitles"
-    srclang="en"
-    src="captions.vtt"
-    default >
-</video>
-<div id="videoplayer" role="button" aria-pressed="false" tabindex="0">
-  <img width="50px" height="50px" src="pics/play.png" alt="Play video">
+    </code>
+  </pre>
 </div>
 
-<h2 id="links">Links</h2>
-<img src="pics/dot.png" alt="dot">&nbsp;<a href="https://www.barnardhci.com">Accessibility Research at Hamilton</a><br>
-<img src="pics/dot.png" alt="dot">&nbsp;<a href="https://www.hamilton.edu/offices/dos/accessibility">Disability Services at Hamilton</a><br>
-<img src="pics/dot.png" alt="dot">&nbsp;<a href="https://xkcd.com/">XKCD</a><br>
-<img src="pics/dot.png" alt="dot">&nbsp;<a href="https://www.youtube.com/watch?v=HtTyRajRuyY">A11ycasts Videos</a>
+<div class="coderight">
+  <pre>
+    <code>
+      &lt;!-- // EXAMPLE 1B -->
+      &lt;form>
+        &lt;label for="mail2">
+          I would like you to provide me with an email address:
+        &lt;/label>
+        &lt;input type="email" id="mail2" name="mail2" required aria-describedby="errmsg" aria-invalid="false"/>
+        &lt;span aria-live="polite" id="errmsg" hidden>Please enter a valid email address.</span>
+        &lt;button>Submit</button>
+      &lt;/form>
+    </code>
+  </pre>
+</div>
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+<p>Javascript:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      // EXAMPLE 1A
+      const email1 = document.getElementById("mail1");
+  
+      email1.addEventListener("input", (event) => {
+        if (email1.validity.typeMismatch) {
+          email1.setCustomValidity("Please enter a valid email address.");
+        } else {
+          email1.setCustomValidity("");
+        }
+      });
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      // EXAMPLE 1B
+      const email2 = document.getElementById("mail2");
+
+      email2.addEventListener("input", (event) => {
+        if (email2.validity.typeMismatch) {
+          email2.setAttribute("aria-invalid", "true");
+        } else {
+          email2.setAttribute("aria-invalid", "false")
+        }
+      });
+    </code>
+  </pre>
+</div>
 
 
-<h2 id="signup">Sign Up</h2>
-<form id="sign-up-form">
-  <label for="fn" id="firstName">First Name:</label>
-  <input name="fn" type="text" size="10" id="fn"> <br>
-  <label for="mi" id="middleInitial">Middle Initial:</label>
-  <input name="mi" type="text" size="1" id="mi"><br>
-  <label for="ln" id="lastName">Last Name:</label>
-  <input name="ln" type="text" size="10" id="ln"><br>
 
-  <label for="em" id="email">Email:</label>
-  <input id="em" name="em" type="text" size="20"><br><br>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<hr>
+<h3>What Not to Do: Notifications</h3>
+<p>Example 2A: To be implemented in the future...</p>
+<h3>What to Do Instead: Notifications</h3>
+<p>Example 2B: To be implemented in the future...</p>
 
-  <input type="checkbox" id="spam" name="spam" value="spam">
-  <label for="spam">I would like to receive occassional emails with offers from y'all</label><br><br>
-
-  <label for="comments">Comments:</label><br><br>
-  <textarea id="comments" rows="5" cols="40"></textarea><br>
-  <input type="button" value="Sign Up!" id="signupbutton">
-
-</form>
 
 </div><!-- end div.container -->
 </body>

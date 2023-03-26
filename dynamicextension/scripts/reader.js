@@ -1,14 +1,28 @@
 $(document).ready(function() {
 
   // Error validation
-  const email = document.getElementById("mail");
+  const email1 = document.getElementById("mail1");
 
-  email.addEventListener("input", (event) => {
-    if (email.validity.typeMismatch) {
-      email.setCustomValidity("Please enter an email address.");
+  email1.addEventListener("input", (event) => {
+    if (email1.validity.typeMismatch) {
+      email1.setCustomValidity("Please enter a valid email address.");
       // $(document).getElementById("errmsg").style.display = "inline";
     } else {
-      email.setCustomValidity("");
+      email1.setCustomValidity("");
+      // $(document).getElementById("errmsg").style.display = "none";
+    }
+  });
+
+  const email2 = document.getElementById("mail2");
+
+  email2.addEventListener("input", (event) => {
+    if (email2.validity.typeMismatch) {
+      email2.setAttribute("aria-invalid", "true");
+      // email2.setCustomValidity("Please enter a valid email address.");
+      // $(document).getElementById("errmsg").style.display = "inline";
+    } else {
+      email2.setAttribute("aria-invalid", "false")
+      // email2.setCustomValidity("");
       // $(document).getElementById("errmsg").style.display = "none";
     }
   });

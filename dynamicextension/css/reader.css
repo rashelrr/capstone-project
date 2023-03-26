@@ -48,3 +48,19 @@ html,body {
     height: 207px;
     background-image: url(pics/blankbackground.png);
   }
+
+  .codeleft {
+    background-color: black;
+    color: white;
+    width: 48%;
+    float: left;
+    overflow: scroll;
+  }
+
+  .coderight {
+    background-color: black;
+    color: white;
+    width: 48%;
+    float: right;
+    overflow: scroll;
+  }
