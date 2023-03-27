@@ -22,10 +22,6 @@ html,body {
     font-size: 1.1em;
   }
   
-  a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-  }
   
   .offscreen {
     top: -1000px;
@@ -64,3 +60,38 @@ html,body {
     float: right;
     overflow: scroll;
   }
+
+/* Bad Hover Example */
+.bad-hover-context {
+  display: none;
+}
+
+.bad-hover-link:hover + .bad-hover-context {
+  display: block;
+  padding: 0.5em;
+  background:white;
+  color: black;
+  border:solid black 2px;
+  width:10em;
+  top:1em;  
+}
+
+/* Good Hover Example */
+[role="tooltip"] {
+    display: none;
+    padding: 0.5em;
+    background:white;
+    color: black;
+    border:solid black 2px;
+    width:10em;
+}
+
+.a-and-tooltip {
+  position: relative;
+}
+
+[role="tooltip"] {
+    position: absolute;
+    left:0;
+    top:1em;
+}

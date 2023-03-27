@@ -17,6 +17,8 @@
 <h1>Guide to Developing Accessible Dynamic Content for Screen Reader Users</h1>
 <!-- <div id="accessibilitybanner"></div> -->
 
+<!-- LEVEL 1: ERROR MESSAGES -->
+
 <h2>Provide error messages and notifications accessibly.</h2>
 <p>Ensure that your error messages and notification messages are not only merely able to be read by the screen reader,
   but they also inform the user in a timely manner while allowing them to handle the situation at their own pace.</p>
@@ -127,8 +129,6 @@
   </pre>
 </div>
 
-
-
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 <hr>
 <h3>What Not to Do: Notifications</h3>
@@ -136,6 +136,154 @@
 <h3>What to Do Instead: Notifications</h3>
 <p>Example 2B: To be implemented in the future...</p>
 
+<hr>
+
+<!-- LEVEL 2: HOVER CONTENT -->
+
+<h2>Make content that appears on hover or focus accessible.</h2>
+<p>Content that appears on hover or focus should remain visible to the user until they are
+  done reading the content. Therefore, content should remain visible until dismissed by the user
+  without moving the pointer of changing the keyboard focus. The Escape key is the best way to do this.
+</p>
+
+<hr>
+
+<h3>What Not to Do: Hover Content</h3>
+<p>Example 1A: Hover over the link below. </p>
+Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
+<div class="bad-hover-context">Clicking the link will open Google.</div>
+<p>The new content disappears immediately after the user moves the pointer
+  away from the link. It also is not dismissable via the Escape key. Thus,
+  it is not accessible.
+</p>
+
+<h3>What to Do Instead: Hover Content</h3>
+<p>Example 1B: Try the same thing on this example.</p>
+<!--Code Source: https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39-->
+<p>Hover over this 
+  <a class="a-and-tooltip" id="parent" 
+    href="https://www.google.com/">link
+    <span id="popup" role="tooltip">Clicking the link will open Google.
+    </span>
+  </a>
+</p>
+<p>Notice that the new content is dismissable via the Escape key and it stays
+  visible despite moving the pointer.
+</p>
+
+<h3>Code and Best Practices: Hover Content</h3>
+<ol>
+  <li>Use <b>onmouseover</b> to show new content. Don't use <b>onmouseout</b>: 
+    this will ensure content stays visible even if pointer is moved.</li>
+  <li>Use an event listener for when the Escape key is pressed. </li>
+  <li>In the event listener, make the new content disappear when the Escape key is pressed.</li>
+</ol> 
+
+<p>HTML:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      &lt;!-- // EXAMPLE 1A -->
+      Hover over &lt;a href="https://www.google.com/" class="bad-hover-link">link&lt;/a>
+      &lt;div class="bad-hover-context">Clicking the link will open Google.&lt;/div>
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      &lt;!-- // EXAMPLE 1B -->
+      &lt;p>Hover over this 
+        &lt;a class="a-and-tooltip" id="parent" 
+          href="https://www.google.com/">link
+          &lt;span id="popup" role="tooltip">Clicking the link will open Google.
+          &lt;/span>
+        &lt;/a>
+      &lt;/p>
+    </code>
+  </pre>
+</div>
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+
+<p>JavaScript:</p>
+<div class="codeleft">
+  <pre>
+    <code> // None
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      var parent = document.getElementById('parent');
+
+      parent.onmouseover = function() {
+          document.getElementById('popup').style.display = 'block';
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.code == 'Escape')
+            document.getElementById('popup').style.display = 'none';
+      });
+    </code>
+  </pre>
+</div>
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+
+<p>CSS:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      .bad-hover-context {
+        display: none;
+      }
+      
+      .bad-hover-link:hover + .bad-hover-context {
+        display: block;
+        padding: 0.5em;
+        background:white;
+        color: black;
+        border:solid black 2px;
+        width:10em;
+        top:1em;  
+      }
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      [role="tooltip"] {
+        display: none;
+        padding: 0.5em;
+        background:white;
+        color: black;
+        border:solid black 2px;
+        width:10em;
+      }
+      
+      .a-and-tooltip {
+        position: relative;
+      }
+      
+      [role="tooltip"] {
+          position: absolute;
+          left:0;
+          top:1em;
+      }
+    </code>
+  </pre>
+</div>
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<br> <br> <br> <br> <br> <br> 
+
+<hr>
 
 </div><!-- end div.container -->
 </body>
