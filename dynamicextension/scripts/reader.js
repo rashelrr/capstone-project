@@ -122,6 +122,33 @@ $(document).ready(function() {
         document.getElementById('popup_lavender').style.display = 'none';
   });
 
+  // MISTLETOE
+  const riddle4 = document.getElementById("riddle_mistletoe");
+  const button4 = document.getElementById("riddleAnswer_mistletoe");
+
+  button4.addEventListener('click', function() {
+    if (riddle4.value != "mistletoe") {
+      riddle4.setAttribute("aria-invalid", "true");
+      document.getElementById("errmsg_mistletoe").style.display = "block";
+      document.getElementById("correctmsg_mistletoe").style.display = "none";
+    } else {
+      riddle4.setAttribute("aria-invalid", "false");
+      document.getElementById("errmsg_mistletoe").style.display = "none";
+      document.getElementById("correctmsg_mistletoe").style.display = "block";
+    }
+  });
+
+  const hint4 = document.getElementById("hint4");
+
+  hint4.onmouseover = function() {
+    document.getElementById("popup_mistletoe").style.display = 'block';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code == 'Escape')
+        document.getElementById('popup_mistletoe').style.display = 'none';
+  });
+
 
 
 });

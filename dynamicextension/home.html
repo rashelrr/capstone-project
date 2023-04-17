@@ -8,17 +8,21 @@
   <script src="scripts/reader.js"></script>
 </head>
 <body>
-<div class="offscreen">Main Content</div>
+<div class="offscreen"></div>
 <div class="container">
-<!-- <div class="navigation">
-  <a href="#home"><img src="pics/home.png"></a><a href="#links"><img src="pics/links.png"></a> <a href="#signup"><img src="pics/signup.png"></a>
-</div> -->
 
+<div class="h1leftgif">
+  <img src="pics/computer.gif" alt="scrolling computer gif">
+</div>
 <h1>Guide to Developing Accessible Dynamic Content for Screen Reader Users</h1>
-<!-- <div id="accessibilitybanner"></div> -->
+<p>By: Madison Fong and Rashel Rojas | Developing Accessible UI Spring 2023</p>
+
+<hr>
 
 <!-- LEVEL 1: ERROR MESSAGES -->
-
+<div class="h2leftgif">
+  <img src="pics/notification.gif" alt="notification triangle gif">
+</div>
 <h2>Provide error messages and notifications accessibly.</h2>
 <p>Ensure that your error messages and notification messages are not only merely able to be read by the screen reader,
   but they also inform the user in a timely manner while allowing them to handle the situation at their own pace.</p>
@@ -136,6 +140,9 @@
 
 <!-- LEVEL 2: HOVER CONTENT -->
 
+<div class="h2leftgif">
+  <img src="pics/click.gif" alt="mouse cursor clicking gif">
+</div>
 <h2>Make content that appears on hover or focus accessible.</h2>
 <p>Content that appears on hover or focus should remain visible to the user until they are
   done reading the content. Therefore, content should remain visible until dismissed by the user
@@ -281,103 +288,171 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 
 <hr>
 
-<h2>Demonstration: Putting it All Together!</h2>
+<!-- DEMO -->
+
+<div class="h2leftgif">
+  <img src="pics/check.gif" alt="checkmark checking circle gif">
+</div>
+<h2>Demonstration: Putting What We Learned All Together!</h2>
 <p>Let's implement some of the techniques from above to show how you can still make engaging, dynamic, accessible content!</p>
 
-<h3>Springtime and Flowers: Riddle Game</h3>
+<div class="h3leftgif">
+  <img src="pics/flower.gif" alt="pink flower growing gif">
+</div>
+<h3>Flowers: Riddle Game</h3>
 <p>Instructions: Answer the riddle in all lowercase letters. If you would like to see a picture of the flower, you can hover over the HINT.</p>
+<p><i>(Riddles taken from <a href="https://riddles-for-kids.org/flower-riddles/">here</a>.) This activity provides error messages and
+  notifications accessibly, and also makes hover content accessible for screen readers.</i></p>
 
-<b>RIDDLE 1:</b>
-<br>
-<div class="riddle">
-  This is a type of plant <br>
-  Which sounds like something in the sky <br>
-  It is very yellow <br>
-  And can grow to be ten feet high <br>
+<div class="riddleleft">
+  <b>RIDDLE 1:</b>
+  <br>
+  <div class="riddle">
+    This is a type of plant <br>
+    Which sounds like something in the sky <br>
+    It is very yellow <br>
+    And can grow to be ten feet high <br>
+  </div>
+
+  <br> <br>
+
+  <div class="hint">
+    <span class="a-and-tooltip" id="hint1" 
+      >HINT
+      <span id="popup_sunflower" role="tooltip"> <img src="pics/sunflower.png" alt="a tall, yellow flower in a field"></span>
+    </span>
+  </div>
+
+  <br>
+
+  <form>
+    <label for="riddle_sunflower">
+      What am I?
+    </label>
+    <input size="15" type="text" id="riddle_sunflower" name="riddle_sunflower" required aria-describedby="errmsg_sunflower" aria-invalid="false"/>
+    <button id="riddleAnswer_sunflower" type="button">Check</button>
+    <span aria-live="polite" class="errmsg" id="errmsg_sunflower" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
+    <span aria-live="polite" class="correctmsg" id="correctmsg_sunflower" hidden>Correct! It is a sunflower.</span>
+  </form>
 </div>
 
-<br> <br>
+<div class="riddleright">
+  <b>RIDDLE 2:</b>
+  <br>
+  <div class="riddle">
+    I am the youngest level of Girl Scouts <br>
+    I’m a flower and a female’s name <br>
+    I’m a railcar in Thomas And Friends <br>
+    And a Princess in a Mario game <br>
+  </div>
 
-<div class="hint">
-  <span class="a-and-tooltip" id="hint1" 
-    >HINT
-    <span id="popup_sunflower" role="tooltip"> <img src="pics/sunflower.png" alt="sunflower"></span>
-  </span>
+  <br> <br>
+
+  <div class="hint">
+    <span class="a-and-tooltip" id="hint2" 
+      >HINT
+      <span id="popup_daisy" role="tooltip"> <img src="pics/daisy.png" alt="flowers with small white petals and a yellow center"></span>
+    </span>
+  </div>
+
+  <br>
+
+  <form>
+    <label for="riddle_daisy">
+      What am I?
+    </label>
+    <input size="15" type="text" id="riddle_daisy" name="riddle_daisy" required aria-describedby="errmsg_daisy" aria-invalid="false"/>
+    <button id="riddleAnswer_daisy" type="button">Check</button>
+    <span aria-live="polite" class="errmsg" id="errmsg_daisy" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
+    <span aria-live="polite" class="correctmsg" id="correctmsg_daisy" hidden>Correct! It is a daisy.</span>
+  </form>
 </div>
 
-<br>
+<div class="riddleleft">
+  <br> <br>
+  <b>RIDDLE 3:</b>
+  <br>
+  <div class="riddle">
+    My color is a type of purple <br>
+    And I am a type of flower <br>
+    I'm sometimes the scent of products <br>
+    That you might use in the shower <br>
+  </div>
 
-<form>
-  <label for="riddle_sunflower">
-    What am I?
-  </label>
-  <input type="text" id="riddle_sunflower" name="riddle_sunflower" required aria-describedby="errmsg_sunflower" aria-invalid="false"/>
-  <button id="riddleAnswer_sunflower" type="button">Check</button>
-  <span aria-live="polite" class="errmsg" id="errmsg_sunflower" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
-  <span aria-live="polite" class="correctmsg" id="correctmsg_sunflower" hidden>Correct! It is a sunflower.</span>
-</form>
+  <br> <br>
 
-<br>
-<b>RIDDLE 2:</b>
-<br>
-<div class="riddle">
-  I am the youngest level of Girl Scouts <br>
-  I’m a flower and a female’s name <br>
-  I’m a railcar in Thomas And Friends <br>
-  And a Princess in a Mario game <br>
+  <div class="hint">
+    <span class="a-and-tooltip" id="hint3" 
+      >HINT
+      <span id="popup_lavender" role="tooltip"> <img src="pics/lavender.png" alt="long and thin purple plants with small petals"></span>
+    </span>
+  </div>
+
+  <br>
+
+  <form>
+    <label for="riddle_lavender">
+      What am I?
+    </label>
+    <input size="15" type="text" id="riddle_lavender" name="riddle_lavender" required aria-describedby="errmsg_lavender" aria-invalid="false"/>
+    <button id="riddleAnswer_lavender" type="button">Check</button>
+    <span aria-live="polite" class="errmsg" id="errmsg_lavender" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
+    <span aria-live="polite" class="correctmsg" id="correctmsg_lavender" hidden>Correct! It is lavender.</span>
+  </form>
+  <br> <br>
 </div>
 
-<br> <br>
+<div class="riddleright">
+  <br> <br>
+  <b>RIDDLE 4:</b>
+  <br>
+  <div class="riddle">
+    I’m a plant seen at Christmas <br>
+    Which people hang above <br>
+    And then they stand beneath me <br>
+    And kiss someone they love <br>
+  </div>
 
-<div class="hint">
-  <span class="a-and-tooltip" id="hint2" 
-    >HINT
-    <span id="popup_daisy" role="tooltip"> <img src="pics/daisy.png" alt="daisy"></span>
-  </span>
+  <br> <br>
+
+  <div class="hint">
+    <span class="a-and-tooltip" id="hint4" 
+      >HINT
+      <span id="popup_mistletoe" role="tooltip"> <img src="pics/mistletoe.png" alt="cluster of large green leaves and small, circular red berries"></span>
+    </span>
+  </div>
+
+  <br>
+
+  <form>
+    <label for="riddle_mistletoe">
+      What am I?
+    </label>
+    <input size="15" type="text" id="riddle_mistletoe" name="riddle_mistletoe" required aria-describedby="errmsg_mistletoe" aria-invalid="false"/>
+    <button id="riddleAnswer_mistletoe" type="button">Check</button>
+    <span aria-live="polite" class="errmsg" id="errmsg_mistletoe" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
+    <span aria-live="polite" class="correctmsg" id="correctmsg_mistletoe" hidden>Correct! It is mistletoe.</span>
+  </form>
+  <br> <br>
 </div>
 
-<br>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
-<form>
-  <label for="riddle_daisy">
-    What am I?
-  </label>
-  <input type="text" id="riddle_daisy" name="riddle_daisy" required aria-describedby="errmsg_daisy" aria-invalid="false"/>
-  <button id="riddleAnswer_daisy" type="button">Check</button>
-  <span aria-live="polite" class="errmsg" id="errmsg_daisy" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
-  <span aria-live="polite" class="correctmsg" id="correctmsg_daisy" hidden>Correct! It is a daisy.</span>
-</form>
-
-<br>
-<b>RIDDLE 3:</b>
-<br>
-<div class="riddle">
-  My color is a type of purple <br>
-  And I am a type of flower <br>
-  I'm sometimes the scent of products <br>
-  That you might use in the shower <br>
+<div class="h3leftgif">
+  <!-- <img src="pics/flower.gif" alt="pink flower growing gif"> -->
+  <!-- INSERT YOUR GIF HERE -->
 </div>
+<h3>[Insert Creative Example 2 here]</h3>
+<hr>
 
-<br> <br>
 
-<div class="hint">
-  <span class="a-and-tooltip" id="hint3" 
-    >HINT
-    <span id="popup_lavender" role="tooltip"> <img src="pics/lavender.png" alt="lavender"></span>
-  </span>
+
+<div class="h2leftgif">
+  <img src="pics/writing.gif" alt="pencil writing on paper gif">
 </div>
-
-<br>
-
-<form>
-  <label for="riddle_lavender">
-    What am I?
-  </label>
-  <input type="text" id="riddle_lavender" name="riddle_lavender" required aria-describedby="errmsg_lavender" aria-invalid="false"/>
-  <button id="riddleAnswer_lavender" type="button">Check</button>
-  <span aria-live="polite" class="errmsg" id="errmsg_lavender" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
-  <span aria-live="polite" class="correctmsg" id="correctmsg_lavender" hidden>Correct! It is lavender.</span>
-</form>
+<h2>Works Cited</h2>
+<p><a href="https://www.ibm.com/able/toolkit/develop/dynamic-updates/">IBM: Developing Dynamic Updates</a> | Tutorial Tips and Guidelines</p>
+<p><a href="https://riddles-for-kids.org/flower-riddles/">Flower Riddles for Kids</a> | Riddles for Demonstration</p>
 
 </div><!-- end div.container -->
 </body>
