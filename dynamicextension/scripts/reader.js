@@ -1,73 +1,30 @@
 $(document).ready(function() {
 
   // Error validation
+  // WRONG
   const email1 = document.getElementById("mail1");
 
   email1.addEventListener("input", (event) => {
     if (email1.validity.typeMismatch) {
       email1.setCustomValidity("Please enter a valid email address.");
-      // $(document).getElementById("errmsg").style.display = "inline";
     } else {
       email1.setCustomValidity("");
-      // $(document).getElementById("errmsg").style.display = "none";
     }
   });
 
+  // RIGHT
   const email2 = document.getElementById("mail2");
 
   email2.addEventListener("input", (event) => {
     if (email2.validity.typeMismatch) {
       email2.setAttribute("aria-invalid", "true");
       // email2.setCustomValidity("Please enter a valid email address.");
-      // $(document).getElementById("errmsg").style.display = "inline";
+      document.getElementById("errmsg").style.display = "inline";
     } else {
       email2.setAttribute("aria-invalid", "false")
       // email2.setCustomValidity("");
-      // $(document).getElementById("errmsg").style.display = "none";
+      document.getElementById("errmsg").style.display = "none";
     }
-  });
-
-
-  // Play video
-  $("#videoplayer").mousedown(function() {
-
-    if($($("#videoplayer").children()[0]).attr("src")=="pics/play.png") {
-      $($("#videoplayer").children()[0]).attr("src","pics/pause.jpg");
-      $("#thevideo")[0].play();
-    } else {
-      $($("#videoplayer").children()[0]).attr("src","pics/play.png");
-      $("#thevideo")[0].pause();
-    }
-  });
-    
-  
-  // Form validation
-  $("#signupbutton").click(function() {
-    if($("#fn").val()=="") {
-      $("#firstName").addClass("error");
-
-      return;
-    } else {
-      $("#firstName").removeClass("error");
-    }
-
-    if($("#ln").val()=="") {
-      $("#lastName").addClass("error");
-
-      return;
-    } else {
-      $("#lastName").removeClass("error");
-    }
-
-    if($("#em").val()=="") {
-      $("#email").addClass("error");
-
-      return;
-    } else {
-      $("#email").removeClass("error");
-    }
-
-    alert("Thank you!  Please watch your email for our exciting newsletter and offers!");
   });
 
   // Good Hover Content Example
@@ -81,6 +38,90 @@ $(document).ready(function() {
     if (e.code == 'Escape')
         document.getElementById('popup').style.display = 'none';
   });
+
+  // Flower Riddle Implementation
+  // SUNFLOWER
+  const riddle1 = document.getElementById("riddle_sunflower");
+  const button1 = document.getElementById("riddleAnswer_sunflower");
+
+  button1.addEventListener('click', function() {
+    console.log(riddle1.value);
+    if (riddle1.value != "sunflower") {
+      riddle1.setAttribute("aria-invalid", "true");
+      document.getElementById("errmsg_sunflower").style.display = "block";
+      document.getElementById("correctmsg_sunflower").style.display = "none";
+    } else {
+      riddle1.setAttribute("aria-invalid", "false");
+      document.getElementById("errmsg_sunflower").style.display = "none";
+      document.getElementById("correctmsg_sunflower").style.display = "block";
+    }
+  });
+
+  const hint1 = document.getElementById("hint1");
+
+  hint1.onmouseover = function() {
+    document.getElementById("popup_sunflower").style.display = 'block';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code == 'Escape')
+        document.getElementById('popup_sunflower').style.display = 'none';
+  });
+
+  // DAISY
+  const riddle2 = document.getElementById("riddle_daisy");
+  const button2 = document.getElementById("riddleAnswer_daisy");
+
+  button2.addEventListener('click', function() {
+    if (riddle2.value != "daisy") {
+      riddle1.setAttribute("aria-invalid", "true");
+      document.getElementById("errmsg_daisy").style.display = "block";
+      document.getElementById("correctmsg_daisy").style.display = "none";
+    } else {
+      riddle1.setAttribute("aria-invalid", "false");
+      document.getElementById("errmsg_daisy").style.display = "none";
+      document.getElementById("correctmsg_daisy").style.display = "block";
+    }
+  });
+
+  const hint2 = document.getElementById("hint2");
+
+  hint2.onmouseover = function() {
+    document.getElementById("popup_daisy").style.display = 'block';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code == 'Escape')
+        document.getElementById('popup_daisy').style.display = 'none';
+  });
+
+  // LAVENDER
+  const riddle3 = document.getElementById("riddle_lavender");
+  const button3 = document.getElementById("riddleAnswer_lavender");
+
+  button3.addEventListener('click', function() {
+    if (riddle3.value != "lavender") {
+      riddle3.setAttribute("aria-invalid", "true");
+      document.getElementById("errmsg_lavender").style.display = "block";
+      document.getElementById("correctmsg_lavender").style.display = "none";
+    } else {
+      riddle3.setAttribute("aria-invalid", "false");
+      document.getElementById("errmsg_lavender").style.display = "none";
+      document.getElementById("correctmsg_lavender").style.display = "block";
+    }
+  });
+
+  const hint3 = document.getElementById("hint3");
+
+  hint3.onmouseover = function() {
+    document.getElementById("popup_lavender").style.display = 'block';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code == 'Escape')
+        document.getElementById('popup_lavender').style.display = 'none';
+  });
+
 
 
 });

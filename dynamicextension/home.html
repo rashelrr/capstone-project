@@ -25,7 +25,7 @@
   
 <hr>
 
-<h3>What Not to Do: Error Messages</h3>
+<h3>What Not to Do: Error Messages/Notifications</h3>
 <p>Example 1A: Use a screen reader extension. Try putting in a non-email address and submit.</p>
   <!-- Code from: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation -->
 <form>
@@ -39,26 +39,27 @@
   is entered, the error message is not relayed to the user at all. Instead, the user is simply redirected back to the
   input box, which can confuse users. Users are not made aware that this was due to an invalid email address, and they
   could misinterpret this redirection as a technical glitch.</p>
-<h3>What to Do Instead: Error Messages</h3>
+<h3>What to Do Instead: Error Messages/Notifications</h3>
 <p>Example 1B: Try the same thing on this example.</p>
 <form>
   <label for="mail2">
     I would like you to provide me with an email address:
   </label>
   <input type="email" id="mail2" name="mail2" required aria-describedby="errmsg" aria-invalid="false"/>
-  <span aria-live="polite" id="errmsg" hidden>Please enter a valid email address.</span>
   <button>Submit</button>
+  <span aria-live="polite" class="errmsg" id="errmsg" hidden>Please enter a valid email address.</span>
 </form>
 <p>Notice how this time, the screen reader read aloud the error message, thus making it accessible to screen reader users.
   Let's take a look at the code for each of these examples.</p>
-<h3>Code and Best Practices: Error Messages</h3>
+<h3>Code and Best Practices: Error Messages/Notifications</h3>
 
 <p>1. Use <b>aria-describedby</b> to associate the error message with the input.</p>
 <p>2. Set <b>aria-invalid</b> to true when the input is invalid. This will be conveyed to the user through the screen reader.
   This was implemented through Javascript in Example 1B.</p>
-<p>3. Use <b>aria-live</b> to convey error messages that do not take focus. This will ensure that the error message is read by
-  the screen reader.</p>
-<p><i>As you can see, a few simple changes can make your error messages available to a greater number of users!</i></p>
+<p>3. Use <b>aria-live</b> to convey error messages/notifications that do not take focus. This will ensure that the error
+  message is read by the screen reader. Using "alert" will cause the screen reader to interrupt and immediately announce the
+  updated content, while "polite" will announce the updated content/notification once the user has paused typing.</p>
+<p><i>As you can see, a few simple changes can make your error messages and notifications available to a greater number of users!</i></p>
 
 <p>HTML:</p>
 <div class="codeleft">
@@ -86,7 +87,7 @@
           I would like you to provide me with an email address:
         &lt;/label>
         &lt;input type="email" id="mail2" name="mail2" required aria-describedby="errmsg" aria-invalid="false"/>
-        &lt;span aria-live="polite" id="errmsg" hidden>Please enter a valid email address.</span>
+        &lt;span aria-live="polite" class="errmsg" id="errmsg" hidden>Please enter a valid email address.</span>
         &lt;button>Submit</button>
       &lt;/form>
     </code>
@@ -130,11 +131,6 @@
 </div>
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-<hr>
-<h3>What Not to Do: Notifications</h3>
-<p>Example 2A: To be implemented in the future...</p>
-<h3>What to Do Instead: Notifications</h3>
-<p>Example 2B: To be implemented in the future...</p>
 
 <hr>
 
@@ -284,6 +280,104 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 <br> <br> <br> <br> <br> <br> 
 
 <hr>
+
+<h2>Demonstration: Putting it All Together!</h2>
+<p>Let's implement some of the techniques from above to show how you can still make engaging, dynamic, accessible content!</p>
+
+<h3>Springtime and Flowers: Riddle Game</h3>
+<p>Instructions: Answer the riddle in all lowercase letters. If you would like to see a picture of the flower, you can hover over the HINT.</p>
+
+<b>RIDDLE 1:</b>
+<br>
+<div class="riddle">
+  This is a type of plant <br>
+  Which sounds like something in the sky <br>
+  It is very yellow <br>
+  And can grow to be ten feet high <br>
+</div>
+
+<br> <br>
+
+<div class="hint">
+  <span class="a-and-tooltip" id="hint1" 
+    >HINT
+    <span id="popup_sunflower" role="tooltip"> <img src="pics/sunflower.png" alt="sunflower"></span>
+  </span>
+</div>
+
+<br>
+
+<form>
+  <label for="riddle_sunflower">
+    What am I?
+  </label>
+  <input type="text" id="riddle_sunflower" name="riddle_sunflower" required aria-describedby="errmsg_sunflower" aria-invalid="false"/>
+  <button id="riddleAnswer_sunflower" type="button">Check</button>
+  <span aria-live="polite" class="errmsg" id="errmsg_sunflower" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
+  <span aria-live="polite" class="correctmsg" id="correctmsg_sunflower" hidden>Correct! It is a sunflower.</span>
+</form>
+
+<br>
+<b>RIDDLE 2:</b>
+<br>
+<div class="riddle">
+  I am the youngest level of Girl Scouts <br>
+  I’m a flower and a female’s name <br>
+  I’m a railcar in Thomas And Friends <br>
+  And a Princess in a Mario game <br>
+</div>
+
+<br> <br>
+
+<div class="hint">
+  <span class="a-and-tooltip" id="hint2" 
+    >HINT
+    <span id="popup_daisy" role="tooltip"> <img src="pics/daisy.png" alt="daisy"></span>
+  </span>
+</div>
+
+<br>
+
+<form>
+  <label for="riddle_daisy">
+    What am I?
+  </label>
+  <input type="text" id="riddle_daisy" name="riddle_daisy" required aria-describedby="errmsg_daisy" aria-invalid="false"/>
+  <button id="riddleAnswer_daisy" type="button">Check</button>
+  <span aria-live="polite" class="errmsg" id="errmsg_daisy" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
+  <span aria-live="polite" class="correctmsg" id="correctmsg_daisy" hidden>Correct! It is a daisy.</span>
+</form>
+
+<br>
+<b>RIDDLE 3:</b>
+<br>
+<div class="riddle">
+  My color is a type of purple <br>
+  And I am a type of flower <br>
+  I'm sometimes the scent of products <br>
+  That you might use in the shower <br>
+</div>
+
+<br> <br>
+
+<div class="hint">
+  <span class="a-and-tooltip" id="hint3" 
+    >HINT
+    <span id="popup_lavender" role="tooltip"> <img src="pics/lavender.png" alt="lavender"></span>
+  </span>
+</div>
+
+<br>
+
+<form>
+  <label for="riddle_lavender">
+    What am I?
+  </label>
+  <input type="text" id="riddle_lavender" name="riddle_lavender" required aria-describedby="errmsg_lavender" aria-invalid="false"/>
+  <button id="riddleAnswer_lavender" type="button">Check</button>
+  <span aria-live="polite" class="errmsg" id="errmsg_lavender" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
+  <span aria-live="polite" class="correctmsg" id="correctmsg_lavender" hidden>Correct! It is lavender.</span>
+</form>
 
 </div><!-- end div.container -->
 </body>

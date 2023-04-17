@@ -95,3 +95,33 @@ html,body {
     left:0;
     top:1em;
 }
+
+.riddle {
+  border: 2px solid green;
+  color: green;
+  position: relative;
+  display: inline-block;
+  height: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hint {
+  border: 2px solid gray;
+  color: white;
+  font-size: 15px;
+  background-color: gray;
+  text-align: center;
+  line-height: 20px;
+  height: 20px;
+  width: 50px;
+}
+
+.errmsg {
+  color:red;
+  font-size: 15px;
+}
+
+.correctmsg {
+  color: green;
+  font-size: 15px;
+}
