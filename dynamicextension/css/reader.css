@@ -165,8 +165,12 @@ input,textarea {
   justify-content: center;
 }
 
-
-
 .hidden {
   display: none;
+}
+
+/* tic tac toe */
+.box {
+  background-color: pink;
+  border-style: solid;
 }

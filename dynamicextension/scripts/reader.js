@@ -179,5 +179,72 @@ $(document).ready(function() {
 
 
 
+  // Tic tac toe
+  document.addEventListener('click', function (e) {                                                                                           
+    if ($(e.target).hasClass('box')) {  
+      var content = $(e.target).val()
+      turn($(e.target), content); 
+      //check if someone won
+      checkWinner();                        
+    }                                                             
+  })
+
+  function checkWinner() {
+    b1 = document.getElementById("b1").value;
+    b2 = document.getElementById("b2").value;
+    b3 = document.getElementById("b3").value;
+    b4 = document.getElementById("b4").value;
+    b5 = document.getElementById("b5").value;
+    b6 = document.getElementById("b6").value;
+    b7 = document.getElementById("b7").value;
+    b8 = document.getElementById("b8").value;
+    b9 = document.getElementById("b9").value;
+
+    var p = "X";
+    if (((b1 == p) && (b2 == p) && (b3 == p)) ||
+       ((b1 == p) && (b4 == p) && (b7 == p)) ||
+       ((b7 == p) && (b8 == p) && (b9 == p)) ||
+       ((b3 == p) && (b6 == p) && (b9 == p)) ||
+       ((b1 == p) && (b5 == p) && (b9 == p)) ||
+       ((b3 == p) && (b5 == p) && (b7 == p)) ||
+       ((b2 == p) && (b5 == p) && (b8 == p)) ||
+       ((b4 == p) && (b5 == p) && (b6 == p)) ) {
+      document.getElementById("gameResult").innerHTML = "Player X won!";
+      document.getElementById("update").innerHTML = "";
+    }
+
+    var p = "O";
+    if (((b1 == p) && (b2 == p) && (b3 == p)) ||
+       ((b1 == p) && (b4 == p) && (b7 == p)) ||
+       ((b7 == p) && (b8 == p) && (b9 == p)) ||
+       ((b3 == p) && (b6 == p) && (b9 == p)) ||
+       ((b1 == p) && (b5 == p) && (b9 == p)) ||
+       ((b3 == p) && (b5 == p) && (b7 == p)) ||
+       ((b2 == p) && (b5 == p) && (b8 == p)) ||
+       ((b4 == p) && (b5 == p) && (b6 == p)) ) {
+      document.getElementById("gameResult").innerHTML = "Player O won!";
+      document.getElementById("update").innerHTML = "";
+    }
+  }
+
+  var player = "X";
+  function turn(target, content) {
+    if (content.includes("X") || content.includes("O")) {
+      // do nothing
+    } else { // play turn
+      if (player === "X") {
+        target.val('X');
+        player = "O";
+        document.getElementById("update").innerHTML = "Player O's turn";
+      } else {
+        target.val("O");
+        player = "X";
+        document.getElementById("update").innerHTML = "Player X's turn";
+      }
+    }
+  };
+
+
+
 });
   

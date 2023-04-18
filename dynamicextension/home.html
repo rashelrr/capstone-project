@@ -292,11 +292,14 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 
 <!-- LEVEL 2: STATUS MESSAGES -->
 <hr>
+<div class="h2leftgif">
+  <img src="pics/announce.gif" alt="megaphone gif">
+</div>
 <h2> Properly code status messages. </h2>
 <p>
   To ensure that screen readers announce the success or results of an action, suggestions,
-  or warnings, use ARIA roles. This will ensure that those who are visually impaired can be 
-  stay updated on these types of site changes.
+  or warnings, use ARIA roles. This will ensure that those who are visually impaired can 
+  be updated on these types of site changes.
 </p>
 <hr>
 
@@ -488,7 +491,7 @@ Roles/alert_role -->
 </div>
 
 <br> <br> <br> <br> <br> <br> <br> <br> 
-
+<hr>
 
 <!-- DEMO -->
 
@@ -641,13 +644,40 @@ Roles/alert_role -->
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 <div class="h3leftgif">
-  <!-- <img src="pics/flower.gif" alt="pink flower growing gif"> -->
-  <!-- INSERT YOUR GIF HERE -->
+  <img src="pics/tictactoe.gif" alt="tic tac toe game gif">
 </div>
-<h3>[Insert Creative Example 2 here]</h3>
+<h3>Tic-Tac-Toe</h3>
+<p>
+  Instructions: This is a 2-player game, in which the first player is "Player X"
+  and the second player is "Player O". To play, click any of the pink boxes below 
+  to execute your turn. The current turn and winner is displayed below the grid.
+  Refresh the page to start a new game.
+</p>
+<p>
+  <i>
+    This activity makes status and alert messages accessible for screen readers.
+  </i>
+</p>
+
+<input type="text" id="b1" class="box" readonly>
+<input type="text" id="b2" class="box" readonly>
+<input type="text" id="b3" class="box" readonly>
+<input type="text" id="b4" class="box" readonly>
+<input type="text" id="b5" class="box" readonly>
+<input type="text" id="b6" class="box" readonly>
+<input type="text" id="b7" class="box" readonly>
+<input type="text" id="b8" class="box" readonly>
+<input type="text" id="b9" class="box" readonly>
+<br>
+<p role="status">
+  <span id="update">Player X's turn</span>
+</p>
+<div role="alert">
+  <span id="gameResult"></span>
+</div>
+<br>
+
 <hr>
-
-
 
 <div class="h2leftgif">
   <img src="pics/writing.gif" alt="pencil writing on paper gif">
