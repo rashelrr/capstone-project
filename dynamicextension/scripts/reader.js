@@ -39,6 +39,34 @@ $(document).ready(function() {
         document.getElementById('popup').style.display = 'none';
   });
 
+  // Bad Cart Example
+  var c = 0;
+  $("button[id='badCartBtn']").click(badAddCart);
+  function badAddCart() {
+    c += 1;
+    document.getElementById("badCart").innerHTML = c;
+  };
+  
+  // Good Cart Example
+  var counter = 0;
+  $("button[id='cartButton']").click(goodAddCart);
+  function goodAddCart() {
+    counter += 1;
+    document.getElementById("cart").innerHTML = counter;
+  };
+
+  // Bad Alert Example
+  $("button[id='errorMsg']").click(badAlert);
+  function badAlert() {
+    alert("Your log in session will expire in 2 minutes!");
+  };
+
+  // Good Alert Example
+  $("button[id='goodError']").click(goodAlert);
+  function goodAlert() {
+    $('span').removeClass('hidden');
+  };
+
   // Flower Riddle Implementation
   // SUNFLOWER
   const riddle1 = document.getElementById("riddle_sunflower");

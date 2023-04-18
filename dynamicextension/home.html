@@ -152,7 +152,7 @@
 <hr>
 
 <h3>What Not to Do: Hover Content</h3>
-<p>Example 1A: Hover over the link below. </p>
+<p>Example 2A: Hover over the link below. </p>
 Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 <div class="bad-hover-context">Clicking the link will open Google.</div>
 <p>The new content disappears immediately after the user moves the pointer
@@ -161,7 +161,7 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 </p>
 
 <h3>What to Do Instead: Hover Content</h3>
-<p>Example 1B: Try the same thing on this example.</p>
+<p>Example 2B: Try the same thing on this example.</p>
 <!--Code Source: https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39-->
 <p>Hover over this 
   <a class="a-and-tooltip" id="parent" 
@@ -186,7 +186,7 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 <div class="codeleft">
   <pre>
     <code>
-      &lt;!-- // EXAMPLE 1A -->
+      &lt;!-- // EXAMPLE 2A -->
       Hover over &lt;a href="https://www.google.com/" class="bad-hover-link">link&lt;/a>
       &lt;div class="bad-hover-context">Clicking the link will open Google.&lt;/div>
     </code>
@@ -196,7 +196,7 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 <div class="coderight">
   <pre>
     <code>
-      &lt;!-- // EXAMPLE 1B -->
+      &lt;!-- // EXAMPLE 2B -->
       &lt;p>Hover over this 
         &lt;a class="a-and-tooltip" id="parent" 
           href="https://www.google.com/">link
@@ -213,7 +213,8 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 <p>JavaScript:</p>
 <div class="codeleft">
   <pre>
-    <code> // None
+    <code> 
+      // EXAMPLE 2A 
     </code>
   </pre>
 </div>
@@ -221,6 +222,7 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 <div class="coderight">
   <pre>
     <code>
+      // EXAMPLE 2B
       var parent = document.getElementById('parent');
 
       parent.onmouseover = function() {
@@ -241,6 +243,7 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 <div class="codeleft">
   <pre>
     <code>
+      /* EXAMPLE 2A */
       .bad-hover-context {
         display: none;
       }
@@ -261,6 +264,7 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 <div class="coderight">
   <pre>
     <code>
+      /* EXAMPLE 2B */
       [role="tooltip"] {
         display: none;
         padding: 0.5em;
@@ -284,9 +288,207 @@ Hover over <a href="https://www.google.com/" class="bad-hover-link">link</a>
 </div>
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-<br> <br> <br> <br> <br> <br> 
+<br> <br> <br> <br> <br> <br> <br>
 
+<!-- LEVEL 2: STATUS MESSAGES -->
 <hr>
+<h2> Properly code status messages. </h2>
+<p>
+  To ensure that screen readers announce the success or results of an action, suggestions,
+  or warnings, use ARIA roles. This will ensure that those who are visually impaired can be 
+  stay updated on these types of site changes.
+</p>
+<hr>
+
+<!-- examples -->
+<!-- Source: https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA22-->
+<h3>What Not to Do: Status Messages</h3>
+<p>Example 3A: Use a screen reader extension. Click the "Add to Cart" button below. </p>
+<button type="button" id="badCartBtn">Add to Cart</button>
+<p>
+  <span id="badCart">0</span> items in cart
+</p>
+<p> 
+  The example above is inaccessible because when a user clicks the button, 
+  the screen reader does not read the updated number of items in the cart. 
+</p>
+
+<h3>What to Do Instead: Status Messages</h3>
+<p>Example 3B: Try the same thing on this example.</p>
+<button type="button" id="cartButton">Add to Cart</button>
+<p role="status">
+  <span id="cart">0</span> items in cart
+</p>
+<p> 
+  Notice that the screen reader now reads aloud the status of the cart, 
+  thus making it accessible.
+</p>
+
+<h3>What Not to Do: Alert Messages</h3>
+<p>Example 4A: Use a screen reader extension. Click the button below.</p>
+<button id="errorMsg">Show Message</button>
+<p> 
+  The popup shows an important and time-sensitive message and so it should 
+  be read aloud by the screen reader; however, it is not, which makes it 
+  inaccessible.
+</p>
+
+<!-- Source: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/
+Roles/alert_role -->
+<h3>What to Do Instead: Alert Messages</h3>
+<p>Example 4B: Try the same thing on this example.</p>
+<button id="goodError">Show Message</button>
+<div role="alert">
+  <span class="hidden">Your log in session will expire in 2 minutes!</span>
+</div>
+<p> 
+  Notice now that the screen reader reads aloud the message and immediately. Thus it 
+  is now accessible.
+</p>
+
+<h3>Code and Best Practices: Status & Alert Messages</h3>
+<ol>
+  <li>Use <b>role="status"</b> to show the success or results of an action. </li>
+  <li>Use <b>role="alert"</b> to show important or time-sensitive information. </li>
+</ol> 
+
+
+
+
+
+
+
+
+
+<p>HTML:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      &lt;!-- // EXAMPLE 3A -->
+      &lt;button type="button" id="badCartBtn">Add to Cart&lt;/button>
+      &lt;p>
+        &lt;span id="badCart">0&lt;/span> items in cart
+      &lt;/p>
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      &lt;!-- // EXAMPLE 3B -->
+      &lt;button type="button" id="cartButton">Add to Cart&lt;/button>
+      &lt;p role="status">
+        &lt;span id="cart">0&lt;/span> items in cart
+      &lt;/p>
+    </code>
+  </pre>
+</div>
+
+<br> <br> <br> <br> <br> <br> <br> <br> 
+<p>Javascript:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      // EXAMPLE 3A
+      var c = 0;
+      $("button[id='badCartBtn']").click(badAddCart);
+      function badAddCart() {
+        c += 1;
+        document.getElementById("badCart").innerHTML = c;
+      };
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      // EXAMPLE 3B
+      var counter = 0;
+      $("button[id='cartButton']").click(goodAddCart);
+      function goodAddCart() {
+        counter += 1;
+        document.getElementById("cart").innerHTML = counter;
+      };
+    </code>
+  </pre>
+</div>
+
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+
+<p>HTML:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      &lt;!-- // EXAMPLE 4A -->
+      &lt;button id="errorMsg">Show Message&lt;/button>
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      &lt;!-- // EXAMPLE 4B -->
+      &lt;button id="goodError">Show Message&lt;/button>
+      &lt;div role="alert">
+        &lt;span class="hidden">Your log in session will expire in 2 minutes!&lt;/span>
+      &lt;/div>
+    </code>
+  </pre>
+</div>
+
+<br> <br> <br> <br> <br> <br> <br> <br> 
+<p>Javascript:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      // EXAMPLE 4A
+      $("button[id='errorMsg']").click(badAlert);
+      function badAlert() {
+        alert("Your log in session will expire in 2 minutes!");
+      };
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      // EXAMPLE 4B
+      $("button[id='goodError']").click(goodAlert);
+      function goodAlert() {
+        $('span').removeClass('hidden');
+      };
+    </code>
+  </pre>
+</div>
+
+<br> <br> <br> <br> <br> <br> <br> <br> 
+<p>CSS:</p>
+<div class="codeleft">
+  <pre>
+    <code>
+      // EXAMPLE 4A
+    </code>
+  </pre>
+</div>
+
+<div class="coderight">
+  <pre>
+    <code>
+      // EXAMPLE 4B
+      .hidden {
+        display: none;
+      }
+    </code>
+  </pre>
+</div>
+
+<br> <br> <br> <br> <br> <br> <br> <br> 
+
 
 <!-- DEMO -->
 
