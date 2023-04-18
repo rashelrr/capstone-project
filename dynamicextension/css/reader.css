@@ -107,14 +107,9 @@ input,textarea {
 }
 
 .hint {
-  border: 2px solid gray;
-  color: white;
+  color: black;
   font-size: 15px;
-  background-color: gray;
-  text-align: center;
-  line-height: 20px;
-  height: 20px;
-  width: 50px;
+  font-weight: bold;
 }
 
 .errmsg {
@@ -127,18 +122,17 @@ input,textarea {
   font-size: 15px;
 }
 
-.riddleleft {
-  width: 48%;
-  float: left;
-  overflow: scroll;
-  /* border: 2px solid black; */
+.row {
+  display: flex;
+  width: 100%;
 }
 
-.riddleright {
-  width: 48%;
-  float: right;
-  overflow: scroll;
-  /* border: 2px solid black; */
+.row div {
+  width: 50%;
+}
+
+.noMargin {
+  margin: 0px;
 }
 
 .h1leftgif {
