@@ -497,142 +497,131 @@ Roles/alert_role -->
 </div>
 <h3>Flowers: Riddle Game</h3>
 <p>Instructions: Answer the riddle in all lowercase letters. If you would like to see a picture of the flower, you can hover over the HINT.</p>
-<p><i>(Riddles taken from <a href="https://riddles-for-kids.org/flower-riddles/">here</a>.) This activity provides error messages and
+<p><i>This activity provides error messages and
   notifications accessibly, and also makes hover content accessible for screen readers.</i></p>
 
-<div class="riddleleft">
-  <b>RIDDLE 1:</b>
-  <br>
-  <div class="riddle">
-    This is a type of plant <br>
-    Which sounds like something in the sky <br>
-    It is very yellow <br>
-    And can grow to be ten feet high <br>
+<div class="row noMargin">
+  <div>
+    <b>RIDDLE 1:</b><br>
+    <div class="riddle">
+      This is a type of plant <br>
+      Which sounds like something in the sky <br>
+      It is very yellow <br>
+      And can grow to be ten feet high <br>
+    </div><br> <br>
+
+    <div class="hint">
+      <span class="a-and-tooltip" id="hint1" 
+        >HINT
+        <span id="popup_sunflower" role="tooltip"> <img src="pics/sunflower.png" alt="a tall, yellow flower in a field"></span>
+      </span>
+    </div><br>
+
+    <form>
+      <label for="riddle_sunflower">
+        What am I?
+      </label>
+      <input size="15" type="text" id="riddle_sunflower" name="riddle_sunflower" required aria-describedby="errmsg_sunflower" aria-invalid="false"/>
+      <button id="riddleAnswer_sunflower" type="button">Check</button>
+      <span aria-live="polite" class="errmsg" id="errmsg_sunflower" hidden>Wrong answer. Please try again.</span>
+      <span aria-live="polite" class="correctmsg" id="correctmsg_sunflower" hidden>Correct! It is a sunflower.</span>
+    </form>
   </div>
+  <div>
+    <b>RIDDLE 2:</b>
+    <br>
+    <div class="riddle">
+      I am the youngest level of Girl Scouts <br>
+      I’m a flower and a female’s name <br>
+      I’m a railcar in Thomas And Friends <br>
+      And a Princess in a Mario game <br>
+    </div><br> <br>
 
-  <br> <br>
+    <div class="hint">
+      <span class="a-and-tooltip" id="hint2" 
+        >HINT
+        <span id="popup_daisy" role="tooltip"> <img src="pics/daisy.png" alt="flowers with small white petals and a yellow center"></span>
+      </span>
+    </div><br>
 
-  <div class="hint">
-    <span class="a-and-tooltip" id="hint1" 
-      >HINT
-      <span id="popup_sunflower" role="tooltip"> <img src="pics/sunflower.png" alt="a tall, yellow flower in a field"></span>
-    </span>
+    <form>
+      <label for="riddle_daisy">
+        What am I?
+      </label>
+      <input size="15" type="text" id="riddle_daisy" name="riddle_daisy" required aria-describedby="errmsg_daisy" aria-invalid="false"/>
+      <button id="riddleAnswer_daisy" type="button">Check</button>
+      <span aria-live="polite" class="errmsg" id="errmsg_daisy" hidden>Wrong answer. Please try again.</span>
+      <span aria-live="polite" class="correctmsg" id="correctmsg_daisy" hidden>Correct! It is a daisy.</span>
+    </form>
+    <br>
   </div>
+</div>
+<div class ="row noMargin">
+  <div class="three">
+    <b>RIDDLE 3:</b>
+    <br>
+    <div class="riddle">
+      My color is a type of purple <br>
+      And I am a type of flower <br>
+      I'm sometimes the scent of products <br>
+      That you might use in the shower <br>
+    </div>
 
-  <br>
+    <br> <br>
 
-  <form>
-    <label for="riddle_sunflower">
-      What am I?
-    </label>
-    <input size="15" type="text" id="riddle_sunflower" name="riddle_sunflower" required aria-describedby="errmsg_sunflower" aria-invalid="false"/>
-    <button id="riddleAnswer_sunflower" type="button">Check</button>
-    <span aria-live="polite" class="errmsg" id="errmsg_sunflower" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
-    <span aria-live="polite" class="correctmsg" id="correctmsg_sunflower" hidden>Correct! It is a sunflower.</span>
-  </form>
+    <div class="hint">
+      <span class="a-and-tooltip" id="hint3" 
+        >HINT
+        <span id="popup_lavender" role="tooltip"> <img src="pics/lavender.png" alt="long and thin purple plants with small petals"></span>
+      </span>
+    </div>
+
+    <br>
+
+    <form>
+      <label for="riddle_lavender">
+        What am I?
+      </label>
+      <input size="15" type="text" id="riddle_lavender" name="riddle_lavender" required aria-describedby="errmsg_lavender" aria-invalid="false"/>
+      <button id="riddleAnswer_lavender" type="button">Check</button>
+      <span aria-live="polite" class="errmsg" id="errmsg_lavender" hidden>Wrong answer. Please try again.</span>
+      <span aria-live="polite" class="correctmsg" id="correctmsg_lavender" hidden>Correct! It is lavender.</span>
+    </form>
+  </div>
+  <div class="four">
+    <b>RIDDLE 4:</b>
+    <br>
+    <div class="riddle">
+      I’m a plant seen at Christmas <br>
+      Which people hang above <br>
+      And then they stand beneath me <br>
+      And kiss someone they love <br>
+    </div>
+
+    <br> <br>
+
+    <div class="hint">
+      <span class="a-and-tooltip" id="hint4" 
+        >HINT
+        <span id="popup_mistletoe" role="tooltip"> <img src="pics/mistletoe.png" alt="cluster of large green leaves and small, circular red berries"></span>
+      </span>
+    </div>
+
+    <br>
+
+    <form>
+      <label for="riddle_mistletoe">
+        What am I?
+      </label>
+      <input size="15" type="text" id="riddle_mistletoe" name="riddle_mistletoe" required aria-describedby="errmsg_mistletoe" aria-invalid="false"/>
+      <button id="riddleAnswer_mistletoe" type="button">Check</button>
+      <span aria-live="polite" class="errmsg" id="errmsg_mistletoe" hidden>Wrong answer. Please try again.</span>
+      <span aria-live="polite" class="correctmsg" id="correctmsg_mistletoe" hidden>Correct! It is mistletoe.</span>
+    </form>
+  </div>
 </div>
 
-<div class="riddleright">
-  <b>RIDDLE 2:</b>
-  <br>
-  <div class="riddle">
-    I am the youngest level of Girl Scouts <br>
-    I’m a flower and a female’s name <br>
-    I’m a railcar in Thomas And Friends <br>
-    And a Princess in a Mario game <br>
-  </div>
-
-  <br> <br>
-
-  <div class="hint">
-    <span class="a-and-tooltip" id="hint2" 
-      >HINT
-      <span id="popup_daisy" role="tooltip"> <img src="pics/daisy.png" alt="flowers with small white petals and a yellow center"></span>
-    </span>
-  </div>
-
-  <br>
-
-  <form>
-    <label for="riddle_daisy">
-      What am I?
-    </label>
-    <input size="15" type="text" id="riddle_daisy" name="riddle_daisy" required aria-describedby="errmsg_daisy" aria-invalid="false"/>
-    <button id="riddleAnswer_daisy" type="button">Check</button>
-    <span aria-live="polite" class="errmsg" id="errmsg_daisy" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
-    <span aria-live="polite" class="correctmsg" id="correctmsg_daisy" hidden>Correct! It is a daisy.</span>
-  </form>
-</div>
-
-<div class="riddleleft">
-  <br> <br>
-  <b>RIDDLE 3:</b>
-  <br>
-  <div class="riddle">
-    My color is a type of purple <br>
-    And I am a type of flower <br>
-    I'm sometimes the scent of products <br>
-    That you might use in the shower <br>
-  </div>
-
-  <br> <br>
-
-  <div class="hint">
-    <span class="a-and-tooltip" id="hint3" 
-      >HINT
-      <span id="popup_lavender" role="tooltip"> <img src="pics/lavender.png" alt="long and thin purple plants with small petals"></span>
-    </span>
-  </div>
-
-  <br>
-
-  <form>
-    <label for="riddle_lavender">
-      What am I?
-    </label>
-    <input size="15" type="text" id="riddle_lavender" name="riddle_lavender" required aria-describedby="errmsg_lavender" aria-invalid="false"/>
-    <button id="riddleAnswer_lavender" type="button">Check</button>
-    <span aria-live="polite" class="errmsg" id="errmsg_lavender" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
-    <span aria-live="polite" class="correctmsg" id="correctmsg_lavender" hidden>Correct! It is lavender.</span>
-  </form>
-  <br> <br>
-</div>
-
-<div class="riddleright">
-  <br> <br>
-  <b>RIDDLE 4:</b>
-  <br>
-  <div class="riddle">
-    I’m a plant seen at Christmas <br>
-    Which people hang above <br>
-    And then they stand beneath me <br>
-    And kiss someone they love <br>
-  </div>
-
-  <br> <br>
-
-  <div class="hint">
-    <span class="a-and-tooltip" id="hint4" 
-      >HINT
-      <span id="popup_mistletoe" role="tooltip"> <img src="pics/mistletoe.png" alt="cluster of large green leaves and small, circular red berries"></span>
-    </span>
-  </div>
-
-  <br>
-
-  <form>
-    <label for="riddle_mistletoe">
-      What am I?
-    </label>
-    <input size="15" type="text" id="riddle_mistletoe" name="riddle_mistletoe" required aria-describedby="errmsg_mistletoe" aria-invalid="false"/>
-    <button id="riddleAnswer_mistletoe" type="button">Check</button>
-    <span aria-live="polite" class="errmsg" id="errmsg_mistletoe" hidden>Wrong answer. Please try again. The answer should be in all lowercase.</span>
-    <span aria-live="polite" class="correctmsg" id="correctmsg_mistletoe" hidden>Correct! It is mistletoe.</span>
-  </form>
-  <br> <br>
-</div>
-
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<hr>
 
 <!-- Tic tac toe Game -->
 
