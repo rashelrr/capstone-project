@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  // Error validation
+  /* ERROR VALIDATION */
   // WRONG
   const email1 = document.getElementById("mail1");
 
@@ -27,7 +27,8 @@ $(document).ready(function() {
     }
   });
 
-  // Good Hover Content Example
+  /* HOVER CONTENT */
+  // Good
   var parent = document.getElementById('parent');
 
   parent.onmouseover = function() {
@@ -39,7 +40,8 @@ $(document).ready(function() {
         document.getElementById('popup').style.display = 'none';
   });
 
-  // Bad Cart Example
+  /* STATUS MESSAGES */
+  // BAD 
   var c = 0;
   $("button[id='badCartBtn']").click(badAddCart);
   function badAddCart() {
@@ -47,7 +49,7 @@ $(document).ready(function() {
     document.getElementById("badCart").innerHTML = c;
   };
   
-  // Good Cart Example
+  // GOOD 
   var counter = 0;
   $("button[id='cartButton']").click(goodAddCart);
   function goodAddCart() {
@@ -55,19 +57,20 @@ $(document).ready(function() {
     document.getElementById("cart").innerHTML = counter;
   };
 
-  // Bad Alert Example
+  /* ALERT MESSAGES */
+  // BAD
   $("button[id='errorMsg']").click(badAlert);
   function badAlert() {
     alert("Your log in session will expire in 2 minutes!");
   };
 
-  // Good Alert Example
+  // GOOD
   $("button[id='goodError']").click(goodAlert);
   function goodAlert() {
     $('span').removeClass('hidden');
   };
 
-  // Flower Riddle Implementation
+  /* FLOWER RIDDLE GAME */
   // SUNFLOWER
   const riddle1 = document.getElementById("riddle_sunflower");
   const button1 = document.getElementById("riddleAnswer_sunflower");
@@ -177,17 +180,32 @@ $(document).ready(function() {
         document.getElementById('popup_mistletoe').style.display = 'none';
   });
 
-
-
-  // Tic tac toe
+  /* TIC TAC TOE GAME */
   document.addEventListener('click', function (e) {                                                                                           
     if ($(e.target).hasClass('box')) {  
       var content = $(e.target).val()
       turn($(e.target), content); 
-      //check if someone won
       checkWinner();                        
     }                                                             
   })
+
+  var player = "X";
+  function turn(target, content) {
+    if (content.includes("X") || content.includes("O")) {
+      // do nothing
+    } else { 
+      // play turn
+      if (player === "X") {
+        target.val('X');
+        player = "O";
+        document.getElementById("update").innerHTML = "Player O's turn";
+      } else {
+        target.val("O");
+        player = "X";
+        document.getElementById("update").innerHTML = "Player X's turn";
+      }
+    }
+  };
 
   function checkWinner() {
     b1 = document.getElementById("b1").value;
@@ -226,25 +244,6 @@ $(document).ready(function() {
       document.getElementById("update").innerHTML = "";
     }
   }
-
-  var player = "X";
-  function turn(target, content) {
-    if (content.includes("X") || content.includes("O")) {
-      // do nothing
-    } else { // play turn
-      if (player === "X") {
-        target.val('X');
-        player = "O";
-        document.getElementById("update").innerHTML = "Player O's turn";
-      } else {
-        target.val("O");
-        player = "X";
-        document.getElementById("update").innerHTML = "Player X's turn";
-      }
-    }
-  };
-
-
 
 });
   
