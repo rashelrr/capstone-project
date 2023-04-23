@@ -184,25 +184,55 @@ $(document).ready(function() {
   document.addEventListener('click', function (e) {                                                                                           
     if ($(e.target).hasClass('box')) {  
       var content = $(e.target).val()
-      turn($(e.target), content); 
+      turn(e.target.id, $(e.target), content); 
       checkWinner();                        
     }                                                             
   })
 
+  function readLocation(id) {
+    switch (id) {
+      case "b1": 
+        return "Top left box.";
+      case "b2":
+        return "Top middle box.";
+      case "b3":
+        return "Top right box.";
+      case "b4":
+        return "Middle left box.";
+      case "b5": 
+        return "Center box.";
+      case "b6":
+        return "Middle right box.";
+      case "b7":
+        return "Bottom left box.";
+      case "b8":
+        return "Bottom middle box.";
+      case "b9":
+        return "Bottom right box.";
+      default:
+        return "error!";
+    }
+  }
+
   var player = "X";
-  function turn(target, content) {
+  function turn(id, target, content) {
+    var message = readLocation(id);
     if (content.includes("X") || content.includes("O")) {
-      // do nothing
+      // warning
+      message += " Box already contains an 'X' or 'O'. Please try again."
+      document.getElementById("errorAlert").value = message;
     } else { 
       // play turn
       if (player === "X") {
         target.val('X');
         player = "O";
-        document.getElementById("update").innerHTML = "Player O's turn";
+        message += " Player O's turn."
+        document.getElementById("update").innerHTML = message;
       } else {
         target.val("O");
         player = "X";
-        document.getElementById("update").innerHTML = "Player X's turn";
+        message += " Player x's turn."
+        document.getElementById("update").innerHTML = message;
       }
     }
   };

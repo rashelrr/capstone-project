@@ -630,9 +630,10 @@ Roles/alert_role -->
 </div>
 <h3>Tic-Tac-Toe</h3>
 <p>
-  Instructions: This is a 2-player game, in which the first player is "Player X"
-  and the second player is "Player O". To play, click any of the pink boxes below 
-  to execute your turn. The current turn and winner is displayed below the grid.
+  Instructions: This is a 2-player tic tac toe game using a 3 by 3 grid. The first 
+  player is "Player X" and the second player is "Player O". To play, click any of 
+  the pink boxes below to execute your turn. The last box that was clicked, 
+  the current turn, and winner is displayed below the grid.
   Refresh the page to start a new game.
 </p>
 <p>
@@ -652,13 +653,14 @@ Roles/alert_role -->
 <input type="text" id="b9" class="box" readonly>
 <br>
 <p role="status">
-  <span id="update">Player X's turn</span>
+  <span id="update">Player x's turn</span>
 </p>
+<div role="alert">
+  <span id="errorAlert"></span>
+</div>
 <div role="alert">
   <span id="gameResult"></span>
 </div>
-<br>
-
 <hr>
 
 <div class="h2leftgif">
