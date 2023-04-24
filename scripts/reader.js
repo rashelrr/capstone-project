@@ -220,7 +220,7 @@ $(document).ready(function() {
     if (content.includes("X") || content.includes("O")) {
       // warning
       message += " Box already contains an 'X' or 'O'. Please try again."
-      document.getElementById("errorAlert").innerHTML = message;
+      document.getElementById("update").innerHTML = message;
     } else { 
       // play turn
       if (player === "X") {
