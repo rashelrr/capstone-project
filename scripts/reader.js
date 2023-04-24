@@ -181,9 +181,9 @@ $(document).ready(function() {
   });
 
   /* TIC TAC TOE GAME */
-  document.addEventListener('click', function (e) {                                                                                           
+  document.addEventListener('click', function (e) {     
     if ($(e.target).hasClass('box')) {  
-      var content = $(e.target).val()
+      var content = $(e.target).val();
       turn(e.target.id, $(e.target), content); 
       checkWinner();                        
     }                                                             
@@ -220,7 +220,7 @@ $(document).ready(function() {
     if (content.includes("X") || content.includes("O")) {
       // warning
       message += " Box already contains an 'X' or 'O'. Please try again."
-      document.getElementById("errorAlert").value = message;
+      document.getElementById("errorAlert").innerHTML = message;
     } else { 
       // play turn
       if (player === "X") {
