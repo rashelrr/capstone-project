@@ -1,4 +1,5 @@
 { 
+  "homepage" : "https://rashelrr.github.io/capstone-project/",
   "manifest_version": 3, 
   "name": "Dynamic Content Tool", 
   "minimum_chrome_version": "24.0.1307.0", 
